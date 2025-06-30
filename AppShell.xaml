@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PopupV2NavigationIssueRepo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PopupV2NavigationIssueRepo"
+    Title="PopupV2NavigationIssueRepo"    
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarIsVisible="True"
+    Shell.BackgroundColor="{StaticResource Magenta}"
+    Shell.TitleColor="White"
+    Shell.NavBarIsVisible="True"
+    FlyoutBackgroundColor="White">
+
+    <TabBar x:Name="MainTabBar" Shell.BackgroundColor="{StaticResource Magenta}">
+        <Tab Title="Dashboard" Route="MainPage" Shell.BackgroundColor="{StaticResource Magenta}">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Page2" Route="Page2" Shell.BackgroundColor="{StaticResource Magenta}">
+            <ShellContent ContentTemplate="{DataTemplate local:Page2}"/>
+        </Tab>
+        <Tab Title="Page3" Route="Page3" Shell.BackgroundColor="{StaticResource Magenta}">
+            <ShellContent ContentTemplate="{DataTemplate local:Page3}"/>
+        </Tab>
+    </TabBar>
+
+    <ShellItem Route="Page4" >
+        <ShellContent ContentTemplate="{DataTemplate local:Page4}"/>
+    </ShellItem>
+</Shell>
