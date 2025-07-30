@@ -42,7 +42,7 @@
             {
                 WidthRequest = ScreenWidth,
                 HeightRequest = ScreenHeight,
-                BackgroundColor = Color.FromArgb("#00FFFFFF"),
+                BackgroundColor = Color.FromArgb("#80000000"),
                 Opacity = 1,
                 Children =
             {
