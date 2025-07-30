@@ -24,7 +24,7 @@
                 </Button>
             </AbsoluteLayout>
             <AbsoluteLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" Margin="5,5,5,0">
-                <Button TextColor="White" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" Style="{StaticResource TitleButtons}" BackgroundColor="{StaticResource Primary}" Padding="2,0,2,0">
+                <Button TextColor="White" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="{StaticResource Primary}" Padding="2,0,2,0">
                 </Button>
                 <BoxView IsVisible="{Binding IsUnreadMessage}" BackgroundColor="Transparent" Color="{StaticResource Success}" WidthRequest="10" HeightRequest="10" AbsoluteLayout.LayoutBounds="1.1, 0.1, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" CornerRadius="10" />
             </AbsoluteLayout>

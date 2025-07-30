@@ -59,6 +59,43 @@ public class ModalPopupService : IModalPopupService
         return;
     }
 
+    public async Task ShowModalAsync<TPopup>(Func<TPopup> popupFactory, Page2 LoadingPage, PopupOptions? options = null, TimeSpan? popupTimeout = null) where TPopup : Popup
+    {
+        if (CurrentPopupType == typeof(TPopup))
+        {
+            return;
+        }
+
+        var popup = popupFactory();
+
+        options ??= new PopupOptions
+        {
+            CanBeDismissedByTappingOutsideOfPopup = false,
+            PageOverlayColor = Color.FromArgb("#80000000")
+        };
+
+        CurrentPopup = popup;
+
+#if ANDROID
+        var navColor = Platform.CurrentActivity?.Window?.NavigationBarColor;
+#endif
+        await Application.Current.Windows[0].Navigation.PushModalAsync(LoadingPage, true);
+        await Task.Delay(500);
+
+#if ANDROID
+        var navColor2 = Platform.CurrentActivity?.Window?.NavigationBarColor;
+#endif
+        
+        return;
+    }
+
+    public async Task CloseModalAsync()
+    {        
+        await Application.Current.Windows[0].Navigation.PopModalAsync();
+        CurrentPopup = null;
+        return;
+    }
+
     public async Task CloseAsync<TPopup>() where TPopup : Popup
     {
         if (CurrentPopupType != typeof(TPopup))
