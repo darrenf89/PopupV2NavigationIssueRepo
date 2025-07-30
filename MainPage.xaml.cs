@@ -20,10 +20,11 @@ namespace PopupV2NavigationIssueRepo
             if (_modalPopupService.CurrentPopup is not null)
                 return;
 
-            var LoadingPage = new Page2(_modalPopupService);
+            await Task.Delay(1000);
+            var LoadingPage = new LoadingPageTwo();
             await _modalPopupService.ShowModalAsync<PopUpPage>(() => new PopUpPage(), LoadingPage);
 
-            await Task.Delay(500);
+            await Task.Delay(2000);
 
             await _modalPopupService.CloseModalAsync();
         }

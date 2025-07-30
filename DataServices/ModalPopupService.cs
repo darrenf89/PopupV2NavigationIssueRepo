@@ -59,7 +59,7 @@ public class ModalPopupService : IModalPopupService
         return;
     }
 
-    public async Task ShowModalAsync<TPopup>(Func<TPopup> popupFactory, Page2 LoadingPage, PopupOptions? options = null, TimeSpan? popupTimeout = null) where TPopup : Popup
+    public async Task ShowModalAsync<TPopup>(Func<TPopup> popupFactory, LoadingPageTwo LoadingPage, PopupOptions? options = null, TimeSpan? popupTimeout = null) where TPopup : Popup
     {
         if (CurrentPopupType == typeof(TPopup))
         {
@@ -91,7 +91,10 @@ public class ModalPopupService : IModalPopupService
 
     public async Task CloseModalAsync()
     {        
-        await Application.Current.Windows[0].Navigation.PopModalAsync();
+        if(Application.Current.Windows[0].Navigation.ModalStack.Count > 0)
+        {
+            await Application.Current.Windows[0].Navigation.PopModalAsync();            
+        }
         CurrentPopup = null;
         return;
     }
